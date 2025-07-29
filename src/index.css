@@ -1,40 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Motty Motel Design System - Brand Colors and Modern Ice Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Motty Motel Brand Colors */
+    --charcoal: 204 6% 35%;           /* #54595E */
+    --white: 0 0% 100%;               /* #FFFFFF */
+    --gold-mustard: 45 49% 53%;       /* #C7A74E */
+    --sky-blue: 204 71% 80%;          /* #A9D6F0 */
+    
+    /* Modern Ice Theme - Cool, crisp, professional */
+    --ice-blue: 204 25% 97%;          /* Very light ice blue */
+    --ice-gray: 204 10% 94%;          /* Light ice gray */
+    --frost: 204 15% 90%;             /* Frost tone */
+    --arctic: 204 20% 85%;            /* Arctic tone */
+    
+    /* System Colors using brand palette */
+    --background: var(--white);
+    --foreground: var(--charcoal);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: var(--ice-blue);
+    --card-foreground: var(--charcoal);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: var(--white);
+    --popover-foreground: var(--charcoal);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--gold-mustard);
+    --primary-foreground: var(--white);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--frost);
+    --secondary-foreground: var(--charcoal);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--ice-gray);
+    --muted-foreground: 204 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--sky-blue);
+    --accent-foreground: var(--charcoal);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--white);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: var(--arctic);
+    --input: var(--arctic);
+    --ring: var(--gold-mustard);
 
     --radius: 0.5rem;
 
@@ -94,12 +107,86 @@ All colors MUST be HSL.
   }
 }
 
+    /* WhatsApp Green */
+    --whatsapp: 142 70% 49%;          /* WhatsApp green */
+    
+    /* Gradients for modern ice effect */
+    --gradient-ice: linear-gradient(135deg, hsl(var(--ice-blue)), hsl(var(--white)));
+    --gradient-frost: linear-gradient(180deg, hsl(var(--white)), hsl(var(--frost)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-mustard)), hsl(45 55% 60%));
+    
+    /* Animations and Motion */
+    --motion-duration: 20s;
+    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Animated Background Motion */
+  .motion-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    opacity: 0.05;
+    background: linear-gradient(45deg, 
+      hsl(var(--ice-blue)) 0%, 
+      hsl(var(--sky-blue)) 25%, 
+      hsl(var(--ice-blue)) 50%, 
+      hsl(var(--frost)) 75%, 
+      hsl(var(--ice-blue)) 100%);
+    animation: float var(--motion-duration) var(--motion-ease) infinite;
+    z-index: -1;
+  }
+  
+  /* WhatsApp Button */
+  .whatsapp-button {
+    @apply fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110;
+    background: hsl(var(--whatsapp));
+    box-shadow: 0 4px 20px hsl(var(--whatsapp) / 0.3);
+  }
+  
+  /* Modern Ice Glass Effect */
+  .glass-card {
+    backdrop-filter: blur(10px);
+    background: hsl(var(--white) / 0.8);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px hsl(var(--charcoal) / 0.1);
+  }
+  
+  /* Booking Card Enhancement */
+  .booking-card {
+    @apply glass-card rounded-xl p-6 transition-all duration-300 hover:shadow-xl;
+    background: var(--gradient-ice);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-10px, -10px) rotate(0deg);
+  }
+  25% {
+    transform: translate(-15px, -5px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-5px, -15px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(-20px, -8px) rotate(0.5deg);
   }
 }

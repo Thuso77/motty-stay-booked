@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +56,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Motty Motel Brand Colors
+				charcoal: 'hsl(var(--charcoal))',
+				'gold-mustard': 'hsl(var(--gold-mustard))',
+				'sky-blue': 'hsl(var(--sky-blue))',
+				'ice-blue': 'hsl(var(--ice-blue))',
+				'ice-gray': 'hsl(var(--ice-gray))',
+				frost: 'hsl(var(--frost))',
+				arctic: 'hsl(var(--arctic))',
+				whatsapp: 'hsl(var(--whatsapp))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
