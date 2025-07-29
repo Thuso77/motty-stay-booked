@@ -11,7 +11,7 @@ const Hero = () => {
       {/* Hero Image Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/lovable-uploads/255e46ce-ad52-46b6-b2fe-e7e2496dcc65.png')` }}
+        style={{ backgroundImage: `url('/lovable-uploads/f2aa7359-0e84-4905-8736-67cf082c8bf7.png')` }}
       >
         <div className="absolute inset-0 bg-charcoal/40"></div>
       </div>
@@ -24,7 +24,7 @@ const Hero = () => {
               <Star key={i} className="w-5 h-5 fill-primary text-primary" />
             ))}
           </div>
-          <span className="ml-2 text-lg">Guest House</span>
+          <span className="ml-2 text-lg">Guest House • Established 2025</span>
         </div>
         
         <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
@@ -38,22 +38,19 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <div className="flex items-center space-x-2 text-lg">
+        <div className="flex items-center space-x-2 text-lg">
             <MapPin className="w-5 h-5 text-primary" />
-            <span>460 Lwamando Street</span>
+            <span>460 Lwamando Street • Check-in 24/7</span>
           </div>
           <div className="text-2xl font-bold text-primary">
             R300 <span className="text-lg font-normal text-white">per night</span>
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex justify-center">
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
             <Calendar className="w-5 h-5 mr-2" />
             Book Your Stay
-          </Button>
-          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-charcoal px-8 py-4 text-lg">
-            View Rooms
           </Button>
         </div>
       </div>

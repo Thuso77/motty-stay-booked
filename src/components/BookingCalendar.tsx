@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, Users, CreditCard } from "lucide-react";
+import { CalendarDays, Users, MessageCircle } from "lucide-react";
 
 const BookingCalendar = () => {
   const [checkIn, setCheckIn] = useState<Date>();
@@ -24,6 +24,27 @@ const BookingCalendar = () => {
   const calculateTotal = () => {
     const nights = calculateNights();
     return nights * 300;
+  };
+
+  const handleBookingProceed = () => {
+    if (!checkIn || !checkOut) return;
+    
+    const checkInDate = checkIn.toLocaleDateString();
+    const checkOutDate = checkOut.toLocaleDateString();
+    const nights = calculateNights();
+    const total = calculateTotal();
+    
+    const message = encodeURIComponent(
+      `Hi! I'd like to book a room at Motty Motel:\n\n` +
+      `Check-in: ${checkInDate}\n` +
+      `Check-out: ${checkOutDate}\n` +
+      `Nights: ${nights}\n` +
+      `Guests: ${guests}\n` +
+      `Total: R${total}\n\n` +
+      `Please confirm availability and payment details.`
+    );
+    
+    window.open(`https://wa.me/27761107753?text=${message}`, '_blank');
   };
 
   return (
@@ -146,9 +167,12 @@ const BookingCalendar = () => {
                       </div>
                     </div>
                     
-                    <Button className="w-full mt-6 bg-primary hover:bg-primary/90 text-lg py-6">
-                      <CreditCard className="w-5 h-5 mr-2" />
-                      Proceed to Payment
+                    <Button 
+                      onClick={handleBookingProceed}
+                      className="w-full mt-6 bg-primary hover:bg-primary/90 text-lg py-6"
+                    >
+                      <MessageCircle className="w-5 h-5 mr-2" />
+                      Proceed with Booking
                     </Button>
                   </div>
                 )}
