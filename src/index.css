@@ -52,20 +52,25 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* WhatsApp Green */
+    --whatsapp: 142 70% 49%;          /* WhatsApp green */
+    
+    /* Gradients for modern ice effect */
+    --gradient-ice: linear-gradient(135deg, hsl(var(--ice-blue)), hsl(var(--white)));
+    --gradient-frost: linear-gradient(180deg, hsl(var(--white)), hsl(var(--frost)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-mustard)), hsl(45 55% 60%));
+    
+    /* Animations and Motion */
+    --motion-duration: 20s;
+    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
@@ -104,20 +109,6 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-    /* WhatsApp Green */
-    --whatsapp: 142 70% 49%;          /* WhatsApp green */
-    
-    /* Gradients for modern ice effect */
-    --gradient-ice: linear-gradient(135deg, hsl(var(--ice-blue)), hsl(var(--white)));
-    --gradient-frost: linear-gradient(180deg, hsl(var(--white)), hsl(var(--frost)));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-mustard)), hsl(45 55% 60%));
-    
-    /* Animations and Motion */
-    --motion-duration: 20s;
-    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
