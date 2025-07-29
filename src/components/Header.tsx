@@ -23,7 +23,11 @@ const Header = () => {
             <a href="#rooms" className="text-charcoal hover:text-primary transition-colors">Rooms</a>
             <a href="#location" className="text-charcoal hover:text-primary transition-colors">Location</a>
             <a href="#contact" className="text-charcoal hover:text-primary transition-colors">Contact</a>
-            <Button variant="default" className="bg-primary hover:bg-primary/90">
+            <Button 
+              variant="default" 
+              className="bg-primary hover:bg-primary/90"
+              onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Book Now
             </Button>
           </nav>

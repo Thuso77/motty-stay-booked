@@ -108,7 +108,10 @@ const RoomGallery = () => {
                   ))}
                 </div>
                 
-                <Button className="w-full bg-primary hover:bg-primary/90">
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90"
+                  onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Book This Room
                 </Button>
               </CardContent>

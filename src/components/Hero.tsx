@@ -48,7 +48,11 @@ const Hero = () => {
         </div>
         
         <div className="flex justify-center">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg"
+            onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             <Calendar className="w-5 h-5 mr-2" />
             Book Your Stay
           </Button>

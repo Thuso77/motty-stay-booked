@@ -29,26 +29,30 @@ const BookingCalendar = () => {
   const handleBookingProceed = () => {
     if (!checkIn || !checkOut) return;
     
-    const checkInDate = checkIn.toLocaleDateString();
-    const checkOutDate = checkOut.toLocaleDateString();
+    const checkInDate = checkIn.toLocaleDateString('en-GB');
+    const checkOutDate = checkOut.toLocaleDateString('en-GB');
     const nights = calculateNights();
     const total = calculateTotal();
     
     const message = encodeURIComponent(
-      `Hi! I'd like to book a room at Motty Motel:\n\n` +
-      `Check-in: ${checkInDate}\n` +
-      `Check-out: ${checkOutDate}\n` +
-      `Nights: ${nights}\n` +
-      `Guests: ${guests}\n` +
-      `Total: R${total}\n\n` +
-      `Please confirm availability and payment details.`
+      `🏨 *MOTTY MOTEL BOOKING REQUEST*\n\n` +
+      `📅 *Check-in:* ${checkInDate}\n` +
+      `📅 *Check-out:* ${checkOutDate}\n` +
+      `🌙 *Number of nights:* ${nights}\n` +
+      `👥 *Number of guests:* ${guests}\n` +
+      `🏠 *Room type:* Comfortable Queen Room\n\n` +
+      `💰 *BOOKING SUMMARY:*\n` +
+      `• Room rate: R300 per night\n` +
+      `• Total nights: ${nights}\n` +
+      `• *Total amount: R${total}*\n\n` +
+      `Please confirm availability and share payment details. Thank you! 🙏`
     );
     
     window.open(`https://wa.me/27761107753?text=${message}`, '_blank');
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section id="booking-section" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
