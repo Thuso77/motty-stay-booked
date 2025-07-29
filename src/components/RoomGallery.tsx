@@ -1,36 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bed, Users, Wifi, Car, Coffee, Tv } from "lucide-react";
+import { Bed, Users, Wifi, Tv, Refrigerator, Bath, ChefHat, Armchair } from "lucide-react";
 
 const RoomGallery = () => {
   const rooms = [
     {
       id: 1,
-      name: "Deluxe Queen Room",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+      name: "Comfortable Queen Room",
+      image: "/lovable-uploads/89963180-be4a-4b04-8448-e6d74f5ea08d.png",
       price: "R300",
       capacity: "2 Guests",
-      amenities: ["Free WiFi", "TV", "Coffee", "Parking"],
-      description: "Spacious room with modern furnishings and all essential amenities."
+      amenities: ["Free WiFi", "TV", "Mini Fridge", "En-suite Bathroom"],
+      description: "Modern room with checkered headboard, mini fridge, and all essential amenities for a comfortable stay."
     },
     {
       id: 2,
-      name: "Standard Twin Room", 
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      name: "Comfortable Queen Room", 
+      image: "/lovable-uploads/508e866e-d76f-4140-b415-3a3760f85f39.png",
       price: "R300",
       capacity: "2 Guests",
-      amenities: ["Free WiFi", "TV", "Coffee", "Parking"],
-      description: "Comfortable twin beds perfect for friends or colleagues traveling together."
+      amenities: ["Free WiFi", "TV", "Mini Fridge", "En-suite Bathroom"],
+      description: "Spacious room with seating area, perfect for relaxation after a long day."
     },
     {
       id: 3,
-      name: "Executive Suite",
-      image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
+      name: "Comfortable Queen Room",
+      image: "/lovable-uploads/de5a7f0f-8b89-4e07-b578-50547985aac7.png",
       price: "R300", 
-      capacity: "4 Guests",
-      amenities: ["Free WiFi", "TV", "Coffee", "Parking"],
-      description: "Luxurious suite with separate living area and enhanced amenities."
+      capacity: "2 Guests",
+      amenities: ["Free WiFi", "TV", "Kitchenette", "En-suite Bathroom"],
+      description: "Well-appointed room with kitchenette facilities and modern conveniences."
+    },
+    {
+      id: 4,
+      name: "Comfortable Queen Room",
+      image: "/lovable-uploads/255e46ce-ad52-46b6-b2fe-e7e2496dcc65.png",
+      price: "R300", 
+      capacity: "2 Guests",
+      amenities: ["Free WiFi", "TV", "Seating Area", "En-suite Bathroom"],
+      description: "Cozy room with comfortable seating and all modern amenities."
     }
   ];
 
@@ -38,8 +47,10 @@ const RoomGallery = () => {
     switch (amenity) {
       case "Free WiFi": return <Wifi className="w-4 h-4" />;
       case "TV": return <Tv className="w-4 h-4" />;
-      case "Coffee": return <Coffee className="w-4 h-4" />;
-      case "Parking": return <Car className="w-4 h-4" />;
+      case "Mini Fridge": return <Refrigerator className="w-4 h-4" />;
+      case "En-suite Bathroom": return <Bath className="w-4 h-4" />;
+      case "Kitchenette": return <ChefHat className="w-4 h-4" />;
+      case "Seating Area": return <Armchair className="w-4 h-4" />;
       default: return null;
     }
   };

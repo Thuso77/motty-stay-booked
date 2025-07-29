@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Star } from "lucide-react";
-import heroImage from "@/assets/hero-motel.jpg";
+// Using room image as hero background
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
       {/* Hero Image Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url('/lovable-uploads/255e46ce-ad52-46b6-b2fe-e7e2496dcc65.png')` }}
       >
         <div className="absolute inset-0 bg-charcoal/40"></div>
       </div>

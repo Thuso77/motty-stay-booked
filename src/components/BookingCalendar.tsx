@@ -49,26 +49,30 @@ const BookingCalendar = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-charcoal mb-2 block">Check-in</label>
-                    <Calendar
-                      mode="single"
-                      selected={checkIn}
-                      onSelect={setCheckIn}
-                      disabled={(date) => date < new Date()}
-                      className="rounded-md border"
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label className="text-sm font-semibold text-charcoal block">Check-in Date</label>
+                    <div className="bg-white rounded-lg border-2 border-ice-blue/30 p-2">
+                      <Calendar
+                        mode="single"
+                        selected={checkIn}
+                        onSelect={setCheckIn}
+                        disabled={(date) => date < new Date()}
+                        className="rounded-md border-0 pointer-events-auto"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label className="text-sm font-medium text-charcoal mb-2 block">Check-out</label>
-                    <Calendar
-                      mode="single"
-                      selected={checkOut}
-                      onSelect={setCheckOut}
-                      disabled={(date) => date < (checkIn || new Date())}
-                      className="rounded-md border"
-                    />
+                  <div className="space-y-3">
+                    <label className="text-sm font-semibold text-charcoal block">Check-out Date</label>
+                    <div className="bg-white rounded-lg border-2 border-ice-blue/30 p-2">
+                      <Calendar
+                        mode="single"
+                        selected={checkOut}
+                        onSelect={setCheckOut}
+                        disabled={(date) => date < (checkIn || new Date())}
+                        className="rounded-md border-0 pointer-events-auto"
+                      />
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -86,16 +90,15 @@ const BookingCalendar = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="text-sm font-medium text-charcoal mb-2 block">Room Type</label>
-                    <Select value={roomType} onValueChange={setRoomType}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select room type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="deluxe">Deluxe Queen Room</SelectItem>
-                        <SelectItem value="twin">Standard Twin Room</SelectItem>
-                        <SelectItem value="suite">Executive Suite</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <div className="p-3 bg-ice-blue/20 rounded-lg border">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-charcoal">Comfortable Queen Room</span>
+                        <span className="text-primary font-bold">R300/night</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Modern room with all essential amenities
+                      </p>
+                    </div>
                   </div>
 
                   <div>
@@ -115,7 +118,7 @@ const BookingCalendar = () => {
                 </div>
 
                 {/* Booking Summary */}
-                {checkIn && checkOut && roomType && (
+                {checkIn && checkOut && (
                   <div className="border-t pt-6">
                     <h3 className="font-semibold text-charcoal mb-4">Booking Summary</h3>
                     <div className="space-y-2 text-sm">

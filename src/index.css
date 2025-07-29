@@ -68,9 +68,12 @@
     --gradient-frost: linear-gradient(180deg, hsl(var(--white)), hsl(var(--frost)));
     --gradient-primary: linear-gradient(135deg, hsl(var(--gold-mustard)), hsl(45 55% 60%));
     
-    /* Animations and Motion */
-    --motion-duration: 20s;
-    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Animations and Motion */
+  --motion-duration: 20s;
+  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Moving Background */
+  --room-bg-image: url('/lovable-uploads/508e866e-d76f-4140-b415-3a3760f85f39.png');
   }
 
   .dark {
@@ -134,13 +137,10 @@
     left: 0;
     width: 200%;
     height: 200%;
-    opacity: 0.05;
-    background: linear-gradient(45deg, 
-      hsl(var(--ice-blue)) 0%, 
-      hsl(var(--sky-blue)) 25%, 
-      hsl(var(--ice-blue)) 50%, 
-      hsl(var(--frost)) 75%, 
-      hsl(var(--ice-blue)) 100%);
+    opacity: 0.03;
+    background: var(--room-bg-image);
+    background-size: 400px 300px;
+    background-repeat: repeat;
     animation: float var(--motion-duration) var(--motion-ease) infinite;
     z-index: -1;
   }

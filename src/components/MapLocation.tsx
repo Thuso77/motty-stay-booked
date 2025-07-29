@@ -23,16 +23,24 @@ const MapLocation = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Map Placeholder */}
+            {/* Interactive Google Map */}
             <Card className="booking-card overflow-hidden">
-              <div className="relative h-80 bg-gradient-to-br from-ice-blue to-sky-blue flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-charcoal mb-2">Interactive Map</h3>
-                  <p className="text-muted-foreground mb-4">460 Lwamando Street</p>
-                  <Button onClick={openInGoogleMaps} className="bg-primary hover:bg-primary/90">
+              <div className="relative h-80">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.5!2d18.4!3d-33.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s460%20Lwamando%20Street!5e0!3m2!1sen!2sza!4v1640000000000!5m2!1sen!2sza"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Motty Motel Location"
+                  className="rounded-lg"
+                />
+                <div className="absolute bottom-4 right-4">
+                  <Button onClick={openInGoogleMaps} size="sm" className="bg-primary hover:bg-primary/90 shadow-lg">
                     <Navigation className="w-4 h-4 mr-2" />
-                    Open in Google Maps
+                    Directions
                   </Button>
                 </div>
               </div>
