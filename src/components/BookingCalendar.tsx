@@ -59,77 +59,52 @@ const BookingCalendar = () => {
             Book Your Stay
           </h2>
           <p className="text-lg text-muted-foreground">
-            Select your dates and room preferences
+            Select your dates and calculate your booking
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Calendar Section */}
-            <Card className="booking-card">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <CalendarDays className="w-5 h-5 text-primary" />
-                  <span>Select Dates</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <label className="text-sm font-semibold text-charcoal block">Check-in Date</label>
-                    <div className="bg-white rounded-lg border-2 border-ice-blue/30 p-2">
-                      <Calendar
-                        mode="single"
-                        selected={checkIn}
-                        onSelect={setCheckIn}
-                        disabled={(date) => date < new Date()}
-                        className="rounded-md border-0 pointer-events-auto"
-                      />
-                    </div>
+        <div className="max-w-4xl mx-auto">
+          <Card className="booking-card">
+            <CardContent className="p-8">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Date Selection */}
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <CalendarDays className="w-5 h-5 text-primary" />
+                    <h3 className="text-xl font-semibold text-charcoal">Select Dates</h3>
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-sm font-semibold text-charcoal block">Check-out Date</label>
-                    <div className="bg-white rounded-lg border-2 border-ice-blue/30 p-2">
-                      <Calendar
-                        mode="single"
-                        selected={checkOut}
-                        onSelect={setCheckOut}
-                        disabled={(date) => date < (checkIn || new Date())}
-                        className="rounded-md border-0 pointer-events-auto"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Booking Details */}
-            <Card className="booking-card">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-primary" />
-                  <span>Booking Details</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-4">
-                  <div>
-                    <label className="text-sm font-medium text-charcoal mb-2 block">Room Type</label>
-                    <div className="p-3 bg-ice-blue/20 rounded-lg border">
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium text-charcoal">Comfortable Queen Room</span>
-                        <span className="text-primary font-bold">R300/night</span>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-charcoal">Check-in Date</label>
+                      <div className="bg-white rounded-lg border-2 border-ice-blue/30">
+                        <Calendar
+                          mode="single"
+                          selected={checkIn}
+                          onSelect={setCheckIn}
+                          disabled={(date) => date < new Date()}
+                          className="rounded-md border-0 pointer-events-auto p-3"
+                        />
                       </div>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Modern room with all essential amenities
-                      </p>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-charcoal">Check-out Date</label>
+                      <div className="bg-white rounded-lg border-2 border-ice-blue/30">
+                        <Calendar
+                          mode="single"
+                          selected={checkOut}
+                          onSelect={setCheckOut}
+                          disabled={(date) => date < (checkIn || new Date())}
+                          className="rounded-md border-0 pointer-events-auto p-3"
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  <div>
-                    <label className="text-sm font-medium text-charcoal mb-2 block">Number of Guests</label>
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-charcoal">Number of Guests</label>
                     <Select value={guests} onValueChange={setGuests}>
-                      <SelectTrigger>
+                      <SelectTrigger className="w-full">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -142,47 +117,92 @@ const BookingCalendar = () => {
                   </div>
                 </div>
 
-                {/* Booking Summary */}
-                {checkIn && checkOut && (
-                  <div className="border-t pt-6">
-                    <h3 className="font-semibold text-charcoal mb-4">Booking Summary</h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span>Check-in:</span>
-                        <span className="font-medium">{checkIn.toLocaleDateString()}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Check-out:</span>
-                        <span className="font-medium">{checkOut.toLocaleDateString()}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Nights:</span>
-                        <span className="font-medium">{calculateNights()}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Guests:</span>
-                        <span className="font-medium">{guests}</span>
-                      </div>
-                      <div className="border-t pt-2 mt-4">
-                        <div className="flex justify-between text-lg font-bold">
-                          <span>Total:</span>
-                          <span className="text-primary">R{calculateTotal()}</span>
+                {/* Booking Calculator & Summary */}
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <Users className="w-5 h-5 text-primary" />
+                    <h3 className="text-xl font-semibold text-charcoal">Booking Calculator</h3>
+                  </div>
+
+                  {/* Room Details */}
+                  <div className="p-4 bg-ice-blue/20 rounded-lg border">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-charcoal">Comfortable Queen Room</span>
+                      <Badge className="bg-primary text-white">Available</Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Modern room with all essential amenities • Check-in 24/7
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Rate per night</span>
+                      <span className="text-xl font-bold text-primary">R300</span>
+                    </div>
+                  </div>
+
+                  {/* Booking Summary */}
+                  {checkIn && checkOut && (
+                    <div className="bg-gradient-to-br from-ice-blue to-white p-6 rounded-lg border-2 border-primary/20">
+                      <h4 className="font-bold text-charcoal mb-4 text-lg">📋 Booking Summary</h4>
+                      <div className="space-y-3">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Check-in Date:</span>
+                          <span className="font-medium text-charcoal">{checkIn.toLocaleDateString('en-GB')}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Check-out Date:</span>
+                          <span className="font-medium text-charcoal">{checkOut.toLocaleDateString('en-GB')}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Number of Nights:</span>
+                          <span className="font-medium text-charcoal">{calculateNights()}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Number of Guests:</span>
+                          <span className="font-medium text-charcoal">{guests}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Room Type:</span>
+                          <span className="font-medium text-charcoal">Comfortable Queen Room</span>
+                        </div>
+                        
+                        {/* Calculation Breakdown */}
+                        <div className="border-t border-primary/20 pt-3 mt-4">
+                          <div className="flex justify-between text-sm mb-2">
+                            <span className="text-muted-foreground">Room Rate:</span>
+                            <span className="font-medium text-charcoal">R300 × {calculateNights()} night{calculateNights() !== 1 ? 's' : ''}</span>
+                          </div>
+                          <div className="flex justify-between text-xl font-bold">
+                            <span className="text-charcoal">Total Amount:</span>
+                            <span className="text-primary">R{calculateTotal()}</span>
+                          </div>
                         </div>
                       </div>
+                      
+                      <Button 
+                        onClick={handleBookingProceed}
+                        className="w-full mt-6 text-lg py-6 font-semibold"
+                        style={{ backgroundColor: 'hsl(142, 70%, 49%)', color: 'white' }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'hsl(142, 70%, 45%)'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'hsl(142, 70%, 49%)'}
+                      >
+                        <MessageCircle className="w-5 h-5 mr-2" />
+                        Proceed to Book - R{calculateTotal()}
+                      </Button>
                     </div>
-                    
-                    <Button 
-                      onClick={handleBookingProceed}
-                      className="w-full mt-6 bg-primary hover:bg-primary/90 text-lg py-6"
-                    >
-                      <MessageCircle className="w-5 h-5 mr-2" />
-                      Proceed with Booking
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+                  )}
+
+                  {(!checkIn || !checkOut) && (
+                    <div className="p-6 text-center border-2 border-dashed border-primary/30 rounded-lg">
+                      <CalendarDays className="w-12 h-12 text-primary/40 mx-auto mb-3" />
+                      <p className="text-muted-foreground">
+                        Please select check-in and check-out dates to see your booking summary
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
