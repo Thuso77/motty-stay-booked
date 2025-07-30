@@ -108,12 +108,12 @@ const RoomGallery = () => {
                   ))}
                 </div>
                 
-                <Button 
-                  className="w-full bg-primary hover:bg-primary/90"
-                  onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Book This Room
-                </Button>
+                    <Button 
+                      className="w-full bg-primary hover:bg-primary/90"
+                      onClick={() => window.location.href = '/booking'}
+                    >
+                      Book This Room
+                    </Button>
               </CardContent>
             </Card>
           ))}
