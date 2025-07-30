@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,7 +8,13 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <h1 className="text-3xl font-bold text-charcoal">Motty Motel</h1>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/27260a05-c18d-43b8-8a47-99a340530799.png" 
+                alt="Motty Motel Logo" 
+                className="h-12 w-auto"
+              />
+            </Link>
             <div className="hidden md:flex items-center space-x-4 text-sm text-muted-foreground">
               <div className="flex items-center space-x-1">
                 <MapPin className="w-4 h-4" />
@@ -26,9 +33,9 @@ const Header = () => {
             <Button 
               variant="default" 
               className="bg-primary hover:bg-primary/90"
-              onClick={() => window.location.href = '/booking'}
+              asChild
             >
-              Book Now
+              <Link to="/booking">Book Now</Link>
             </Button>
           </nav>
         </div>
