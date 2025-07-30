@@ -26,7 +26,7 @@ const Header = () => {
             <Button 
               variant="default" 
               className="bg-primary hover:bg-primary/90"
-              onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.location.href = '/booking'}
             >
               Book Now
             </Button>
