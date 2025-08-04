@@ -5,16 +5,13 @@ import { Bed, Users, Wifi, Tv, Refrigerator, Bath, ChefHat, Armchair } from "luc
 
 const RoomGallery = () => {
   const galleryImages = [
-    "/lovable-uploads/89963180-be4a-4b04-8448-e6d74f5ea08d.png",
-    "/lovable-uploads/508e866e-d76f-4140-b415-3a3760f85f39.png",
-    "/lovable-uploads/de5a7f0f-8b89-4e07-b578-50547985aac7.png",
-    "/lovable-uploads/255e46ce-ad52-46b6-b2fe-e7e2496dcc65.png",
-    "/lovable-uploads/053843d4-2798-41da-ac6d-c034f3cf08de.png",
-    "/lovable-uploads/5302335e-4acd-4a04-9ae0-007df6dec808.png",
-    "/lovable-uploads/679affc6-7fab-4515-95ae-7f81b8ff2dff.png",
-    "/lovable-uploads/eb548498-bd37-4756-85b8-a2ef87263b6d.png",
-    "/lovable-uploads/ef8b8f30-183c-4387-8816-edc4a1816edf.png",
-    "/lovable-uploads/f2aa7359-0e84-4905-8736-67cf082c8bf7.png"
+    "/lovable-uploads/d5769a38-0f96-43ef-9f44-94c9d6976f29.png",
+    "/lovable-uploads/e987f4cf-a87c-4fbf-9246-825b3b6632d6.png",
+    "/lovable-uploads/fc1517e0-92b8-49aa-81c0-34a01e35aa06.png",
+    "/lovable-uploads/9952d410-20b6-4f77-9bc9-04c4a7b69b65.png",
+    "/lovable-uploads/1f1baece-f48b-4177-b08d-0f2cc65b6f50.png",
+    "/lovable-uploads/cf418061-8a07-4399-9950-03ec6be2a4cb.png",
+    "/lovable-uploads/b7a0039d-8368-4a3b-9f10-9a669d93ae2c.png"
   ];
 
   const roomInfo = {
