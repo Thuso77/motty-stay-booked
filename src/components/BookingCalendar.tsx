@@ -25,10 +25,10 @@ const BookingCalendar = () => {
 
   const calculateTotal = () => {
     if (stayType === "hourly") {
-      return duration === 1 ? 150 : 200;
+      return duration === 1 ? 100 : 150;
     }
     const nights = calculateNights();
-    return nights * 300;
+    return nights * 250;
   };
 
   const handleBookingProceed = () => {
@@ -87,7 +87,7 @@ const BookingCalendar = () => {
                       className="w-4 h-4 text-primary"
                     />
                     <label htmlFor="overnight" className="text-sm font-medium">
-                      Overnight Stay (R300/night)
+                      Overnight Stay (R250/night)
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -114,8 +114,8 @@ const BookingCalendar = () => {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="1">1 Hour - R150</SelectItem>
-                        <SelectItem value="2">2 Hours - R200</SelectItem>
+                        <SelectItem value="1">1 Hour - R100</SelectItem>
+                        <SelectItem value="2">2 Hours - R150</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -195,7 +195,7 @@ const BookingCalendar = () => {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">Rate per night:</span>
-                        <span className="font-medium">R300</span>
+                        <span className="font-medium">R250</span>
                       </div>
                     </>
                   )}
@@ -203,7 +203,7 @@ const BookingCalendar = () => {
                   {stayType === "hourly" && (
                     <div className="flex justify-between items-center">
                       <span className="text-muted-foreground">Rate:</span>
-                      <span className="font-medium">R{duration === 1 ? '150' : '200'}</span>
+                      <span className="font-medium">R{duration === 1 ? '100' : '150'}</span>
                     </div>
                   )}
                   

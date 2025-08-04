@@ -4,44 +4,30 @@ import { Badge } from "@/components/ui/badge";
 import { Bed, Users, Wifi, Tv, Refrigerator, Bath, ChefHat, Armchair } from "lucide-react";
 
 const RoomGallery = () => {
-  const rooms = [
-    {
-      id: 1,
-      name: "Comfortable Queen Room",
-      image: "/lovable-uploads/89963180-be4a-4b04-8448-e6d74f5ea08d.png",
-      price: "R300",
-      capacity: "2 Guests",
-      amenities: ["Free WiFi", "TV", "Mini Fridge", "En-suite Bathroom"],
-      description: "Modern room with checkered headboard, mini fridge, and all essential amenities for a comfortable stay."
-    },
-    {
-      id: 2,
-      name: "Comfortable Queen Room", 
-      image: "/lovable-uploads/508e866e-d76f-4140-b415-3a3760f85f39.png",
-      price: "R300",
-      capacity: "2 Guests",
-      amenities: ["Free WiFi", "TV", "Mini Fridge", "En-suite Bathroom"],
-      description: "Spacious room with seating area, perfect for relaxation after a long day."
-    },
-    {
-      id: 3,
-      name: "Comfortable Queen Room",
-      image: "/lovable-uploads/de5a7f0f-8b89-4e07-b578-50547985aac7.png",
-      price: "R300", 
-      capacity: "2 Guests",
-      amenities: ["Free WiFi", "TV", "Kitchenette", "En-suite Bathroom"],
-      description: "Well-appointed room with kitchenette facilities and modern conveniences."
-    },
-    {
-      id: 4,
-      name: "Comfortable Queen Room",
-      image: "/lovable-uploads/255e46ce-ad52-46b6-b2fe-e7e2496dcc65.png",
-      price: "R300", 
-      capacity: "2 Guests",
-      amenities: ["Free WiFi", "TV", "Seating Area", "En-suite Bathroom"],
-      description: "Cozy room with comfortable seating and all modern amenities."
-    }
+  const galleryImages = [
+    "/lovable-uploads/89963180-be4a-4b04-8448-e6d74f5ea08d.png",
+    "/lovable-uploads/508e866e-d76f-4140-b415-3a3760f85f39.png",
+    "/lovable-uploads/de5a7f0f-8b89-4e07-b578-50547985aac7.png",
+    "/lovable-uploads/255e46ce-ad52-46b6-b2fe-e7e2496dcc65.png",
+    "/lovable-uploads/053843d4-2798-41da-ac6d-c034f3cf08de.png",
+    "/lovable-uploads/5302335e-4acd-4a04-9ae0-007df6dec808.png",
+    "/lovable-uploads/679affc6-7fab-4515-95ae-7f81b8ff2dff.png",
+    "/lovable-uploads/eb548498-bd37-4756-85b8-a2ef87263b6d.png",
+    "/lovable-uploads/ef8b8f30-183c-4387-8816-edc4a1816edf.png",
+    "/lovable-uploads/f2aa7359-0e84-4905-8736-67cf082c8bf7.png"
   ];
+
+  const roomInfo = {
+    name: "Comfortable Queen Room",
+    nightlyPrice: "R250",
+    hourlyPrices: {
+      oneHour: "R100",
+      twoHours: "R150"
+    },
+    capacity: "2 Guests",
+    amenities: ["Free WiFi", "TV", "Mini Fridge", "En-suite Bathroom"],
+    description: "Comfortable rooms with all essential amenities for your stay."
+  };
 
   const getAmenityIcon = (amenity: string) => {
     switch (amenity) {
@@ -63,61 +49,75 @@ const RoomGallery = () => {
             Our Rooms
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose from our selection of comfortable and well-appointed rooms, 
-            all featuring modern amenities and exceptional value.
+            Choose from our selection of comfortable and well-appointed rooms.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {rooms.map((room) => (
-            <Card key={room.id} className="booking-card overflow-hidden group hover:scale-105 transition-transform duration-300">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={room.image}
-                  alt={room.name}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <Badge className="absolute top-4 left-4 bg-primary text-white">
-                  {room.capacity}
-                </Badge>
-              </div>
-              
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold text-charcoal">{room.name}</h3>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-primary">{room.price}</div>
-                    <div className="text-sm text-muted-foreground">per night</div>
+        {/* Room Info Card */}
+        <Card className="max-w-4xl mx-auto mb-16 overflow-hidden">
+          <CardContent className="p-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Room Details */}
+              <div>
+                <h3 className="text-2xl font-semibold text-charcoal mb-4">{roomInfo.name}</h3>
+                <p className="text-muted-foreground mb-6">{roomInfo.description}</p>
+                
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <Bed className="w-4 h-4 mr-1" />
+                    <Users className="w-4 h-4 mr-2 ml-3" />
+                    <span>{roomInfo.capacity}</span>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    {roomInfo.amenities.map((amenity) => (
+                      <div key={amenity} className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        {getAmenityIcon(amenity)}
+                        <span>{amenity}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                
-                <p className="text-muted-foreground mb-4">{room.description}</p>
-                
-                <div className="flex items-center mb-4 text-sm text-muted-foreground">
-                  <Bed className="w-4 h-4 mr-1" />
-                  <Users className="w-4 h-4 mr-2 ml-3" />
-                  <span>{room.capacity}</span>
+
+                {/* Pricing */}
+                <div className="space-y-2 mb-6">
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Per Night:</span>
+                    <span className="text-xl font-bold text-primary">{roomInfo.nightlyPrice}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">1 Hour:</span>
+                    <span className="text-lg font-semibold text-primary">{roomInfo.hourlyPrices.oneHour}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">2 Hours:</span>
+                    <span className="text-lg font-semibold text-primary">{roomInfo.hourlyPrices.twoHours}</span>
+                  </div>
                 </div>
-                
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  {room.amenities.map((amenity) => (
-                    <div key={amenity} className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      {getAmenityIcon(amenity)}
-                      <span>{amenity}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                    <Button 
-                      className="w-full bg-primary hover:bg-primary/90"
-                      onClick={() => window.location.href = '/booking'}
-                    >
-                      Book This Room
-                    </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90"
+                  onClick={() => window.location.href = '/booking'}
+                >
+                  Book a Room
+                </Button>
+              </div>
+
+              {/* Gallery */}
+              <div className="grid grid-cols-2 gap-2">
+                {galleryImages.map((image, index) => (
+                  <div key={index} className="relative overflow-hidden rounded-lg">
+                    <img 
+                      src={image}
+                      alt={`Room view ${index + 1}`}
+                      className="w-full h-32 object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
