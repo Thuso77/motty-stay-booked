@@ -38,10 +38,6 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-        <div className="flex items-center space-x-2 text-lg">
-            <MapPin className="w-5 h-5 text-primary" />
-            <span>460 Lwamando Street • Check-in 24/7</span>
-          </div>
           <div className="space-y-1">
             <div className="text-2xl font-bold text-primary">
               R250 <span className="text-lg font-normal text-white">per night</span>
